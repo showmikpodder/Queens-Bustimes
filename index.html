@@ -1,0 +1,292 @@
+
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8'>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<!--
+<link href='https://twitter.com/joshuaclayton' rel='author'>
+<meta content='https://robots.thoughtbot.com/factory_bot' name='twitter:url'>-->
+
+<title>Bustimes</title>
+<link rel="stylesheet" media="all" href="https://rawgit.com/showmikpodder/test/master/codebeautify.css"/>
+<!--<link rel="stylesheet" media="all" href="https://robots.thoughtbot.com/assets/application-3a42b82d86a697210a66d53d6e387b38ff2d7cac7a1d912bddc373a7875de1e6.css" />-->
+
+<!--Leaflet-->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css"
+   integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ=="
+   crossorigin=""/>
+<script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"
+   integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log=="
+   crossorigin=""></script>
+
+<style type="text/css">
+#map{height: 500px;}
+#map2{height: 500px;}
+#map3{height: 500px;}
+</style>
+</head>
+<body>
+<nav class='site-nav' role='navigation'>
+</a><div class='site-nav-links'>
+<a class="site-nav-link" href="/tags">All Topics</a>
+<a class="site-nav-link" href="/design">Design</a>
+<a class="site-nav-link" href="/web">Web</a>
+<a class="site-nav-link" href="/ios">iOS</a>
+<a class="site-nav-link" href="/android">Android</a>
+
+
+</a></div>
+</nav>
+
+<div class='container'>
+
+<article class='post text' data-url='/factory_bot' id='main-content' role='main'>
+<header>
+<h1 class='title'>
+Improving Transportation for Queens Most Neediest
+</h1>
+<div class='meta'>
+<div class='meta-author'>
+<a>Showmik Podder</a>
+</div>
+<time class='meta-date' datetime='2017-10-24T00:00:00+00:00' itemProp='datePublished'>
+November 2017
+</time>
+
+</div>
+
+</header>
+
+
+<div class='post-body'>
+
+<p>The transportation system in New York City has been a large part of my life growing up. 
+Even though I grew up in Queens, I commuted to high school in downtown Brooklyn and graduate school in Harlem. 
+This commute was a large part of my day and more often than not, the commute would take 60 to 90 minutes to travel one way.</p>
+
+<p>
+Despite this, I felt truly blessed and thankful for the Metropolitian Transportation Authority (MTA) for 
+providing a service that allowed me to live in the greatest city in the world. 
+Without them, getting around would seem almost impossible in a city of this scale.</p>
+
+<p>
+However, after using MTA services my entire life, I did notice some things.  
+</p>
+<p>
+From my experience, it felt like the services were always worse off in areas where poverty was higher. 
+This observation got me thinking about the people who live in these communities. I knew my commute was long, were theirs longer or more diffcult? 
+How did that affect their daily lives?
+</p>
+
+<p>
+For my Data Incubator Capstone project, I set out to try and make sense of these observations adn questions.
+I wanted to identify areas where poverty was high and the commute times were also high. 
+My thinking is that by identifying these areas, any special attention given would have a larger impact for the people living in these areas.
+</p>
+
+<p>
+The initial steps I took was to do some reading about the topic. 
+Looking at the literature, numerous studies indicates that having 
+access to an reliable transportation system is a crucial element in escaping poverty.
+Here are some links to some interesting articles I read.
+</p>
+
+<div class="highlight"><pre class="highlight elm">
+<ul>
+<li><a href="https://www.nytimes.com/2015/05/07/upshot/transportation-emerges-as-crucial-to-escaping-poverty.html">Transportation Emerges as Crucial to Escaping Poverty
+</a></li>
+<li><a href="https://www.nytimes.com/2015/05/04/upshot/an-atlas-of-upward-mobility-shows-paths-out-of-poverty.html">An Atlas of Upward Mobility Shows Paths Out of Poverty
+</a></li>
+<li><a href="http://www.nber.org/papers/w19843">Where is the Land of Opportunity: The Geography of 
+Intergenerational Mobility in the United States
+</a></li>
+</ul>
+</pre>
+</div>
+</div>
+
+<div class='post-body'>
+<h2 id="technical-details">
+	<a href="#technical-details">
+		Commute Times
+	</a>
+</h2>
+
+<p>
+I decided to focus my study on the borough of Queens to start. I needed an idea of what the commute times are within the borough. 
+I decided to look at the problem on a zipcode basis. </p>
+<p>Using Google Maps, 
+I looked at what the commute times to Pennsylvania Station in Manhattan were from every zipcode in Queens. 
+I took the time of travel as a typical Monday morning during the 8 am rush hour. This is when the MTA system is said to be at its peak.
+</p>
+
+<p>
+The choropleth below shows the commute times mapped out by zipcodes for queens. A more detailed interactive version of the map can be found
+<a href="/full_src_commute.html">here</a>.
+</p>
+</div>
+<div id="map"></div>
+	<script>
+		var map = new L.Map("map", {center: [40.679870, -73.855513], zoom: 10.5})
+			//
+			.addLayer(new L.TileLayer("https://api.mapbox.com/styles/v1/spodder/cj9irmi8cb48z2rn12y4nbq7o/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1Ijoic3BvZGRlciIsImEiOiJjajloZ25iMXMzODZuMndxbXNrdTM5bnd6In0.lN9vRRFe-MfxkmdYyQ2oKA"));
+		
+		marker = L.marker([40.750259, -73.993589]).addTo(map);
+		marker.bindPopup('Penn Station').openPopup();
+	</script>
+
+
+<p>
+Penn Station was chosen as a reference point for the commute times because of the way the subway system in NYC
+is designed. All subways (except the G train) travel through manhattan at some point in their routes. 
+Penn station represents a economic hub within the city where there are alot of opportunities.
+</p>
+<p> Darker shades of color indicate longer commute times. Click on the interactive map, <a href="/full_src_commute.html">here</a>, 
+for a more detailed version. At first glance the map makes sense, the further out from manhattan you get, the longer your commute times become.  
+</p>
+
+<div class='post-body'>
+<h2 id="initial-rollout">
+  <a href="#initial-rollout">
+    Areas of High Need
+  </a>
+</h2>
+
+<p>The next step in my study was to identify the impoverished areas within queens. 
+Theres many ways to do this but I chose to keep it simple and look at the numbers provided by the <a href="https://www.irs.gov/statistics/soi-tax-stats-individual-income-tax-returns-publication-1304-complete-report">Internal Revenue System</a>. 
+Specifically, I looked at the number returns that were filed that were under the federal guidelines for poverty.</p>
+<p>The choropleth below represents these results.</p>
+</div>
+<div id="map2"></div>
+<script>
+	var map2 = new L.Map("map2", {center: [40.679870, -73.855513], zoom: 10.5})
+		.addLayer(new L.TileLayer("https://api.mapbox.com/styles/v1/spodder/cj9nnr66q3n0v2rtcm80zwgk3/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1Ijoic3BvZGRlciIsImEiOiJjajloZ25iMXMzODZuMndxbXNrdTM5bnd6In0.lN9vRRFe-MfxkmdYyQ2oKA"));
+</script>
+
+<p>
+Just like in the commute times map, darker shades indicate zipcodes that have higher number of poorer households (income less than $25000 per year for a family of 4). 
+A more detailed version of this map can be found <a href="/full_src_commute.html">here</a>. 
+</p>
+
+<p>
+There are a number of zipcodes with higher numbers of returns spread all over the borough. 
+In order to identify the zipcodes that demonstrate high need we have to correlate the commute time data together with the tax return data. 
+To do this and develop a "Need Score", I normalized the two data sets and combined them together to obtain a score. 
+Because the range of the values of the number of returns feature varied much more greatly than the commute times feature, 
+I performed a <a href="https://en.wikipedia.org/wiki/Feature_scaling">feature scaling</a> normalization on the tax return data set.
+</p>
+
+<p>
+The choropleth below represents the Need Scores for each zipcode in queens.
+</p>
+
+<div id="map3"></div>
+<script>
+	var map3 = new L.Map("map3", {center: [40.679870, -73.855513], zoom: 10.5})
+		.addLayer(new L.TileLayer("https://api.mapbox.com/styles/v1/spodder/cj9qmzc3b0bit2rnvsz45zr3k/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1Ijoic3BvZGRlciIsImEiOiJjajloZ25iMXMzODZuMndxbXNrdTM5bnd6In0.lN9vRRFe-MfxkmdYyQ2oKA"));
+</script>
+
+<p>
+As with the previous choropleths, the darker colors indicate a higher Need score. 
+A more detailed version of this map can be found <a href="/full_src_commute.html">here</a>.
+ These Need scores ranged from values of 0.008 to about 1.743. The zip codes with the highest Need scores and their summaries are listed below.
+</p>
+
+
+<table>
+	<tr>
+		<th>Zipcode</th>
+		<th>Commute Time</th>
+		<th>Total Returns </th>
+		<th>Need Score</th>
+	</tr>
+	<tr>
+		<td>11434</td>
+		<td>78 minutes</td>
+		<td>13060</td>
+		<td>1.743</td>
+	</tr>
+	<tr>
+		<td>11419</td>
+		<td>61 minutes</td>
+		<td>12050</td>
+		<td>1.581</td>
+	</tr>
+	<tr>
+		<td>11354</td>
+		<td>60 minutes</td>
+		<td>17410</td>
+		<td>1.571</td>
+	</tr>
+	<tr>
+		<td>11355</td>
+		<td>59 minutes</td>
+		<td>33920</td>
+		<td>1.562</td>
+	</tr>
+	<tr>
+		<td>11432</td>
+		<td>57 minutes</td>
+		<td>13960</td>
+		<td>1.543</td>
+	</tr>
+</table>
+</pre>
+
+<p>
+After doing this analysis and identifying which poor neighborhoods could use better transportation, I looked at how 
+their commute times can be improved. 
+This factor is key because several studies indicated that people who had higher (>60 minutes) commute times to get to work or school 
+often performed worse economically than individuals whose commutes were shorter.
+</p>
+
+
+<div class='post-body'>
+<h2 id="technical-details">
+	<a href="#technical-details">
+		Looking at Bus Times
+	</a>
+</h2>
+
+<p>
+Typically, travel within the city is two pronged; most people take buses to the nearest subways station, 
+where trains can more quickly transport them through the city. I hypothesized that if there were any inefficiencies in the system, 
+it would be within the bus routes. 
+</p>
+
+<p>
+In this part of the study, I took a look at the massive (~5 GBs) historical GTFS database that the engineers at the MTA has on bustimes. 
+A link to the database can be found <a href="http://data.mytransit.nyc/gtfs/">here</a>.
+</p>
+
+<p>
+Since this is a preliminary study, I looked at a small subset of the data. Specifically, I looked at the buses that ran in the 11434 zipcode.
+I wanted to see if a preliminary understanding can be done on the information.
+</p>
+
+
+</div>
+</article>
+</div>
+<section class='container'>
+<div id='promoted'>
+<!-- Intentionally left blank to focus attention on CTAs in news articles -->
+
+</div>
+
+</section>
+
+<div class='copyright-footer'>
+<strong>
+<a href="https://www.thedataincubator.com">The Data Incubator</a>, Fall 2017
+
+</strong>
+
+</div>
+</footer>
+
+
+
+</body>
+</html>
