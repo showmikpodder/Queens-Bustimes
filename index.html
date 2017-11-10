@@ -44,7 +44,7 @@
 <article class='post text' data-url='/factory_bot' id='main-content' role='main'>
 <header>
 <h1 class='title'>
-Improving Transportation for Queens Most Neediest
+Improving Transportation for Queens' Most Needy
 </h1>
 <div class='meta'>
 <div class='meta-author'>
@@ -63,7 +63,7 @@ November 2017
 
 <p>The transportation system in New York City has been a large part of my life growing up. 
 Even though I grew up in Queens, I commuted to high school in downtown Brooklyn and graduate school in Harlem. 
-This commute was a large part of my day and more often than not, the commute would take 60 to 90 minutes to travel one way.</p>
+This commute was a large part of my day and more often than not, the commute would take 60 to 90 minutes, one way.</p>
 
 <p>
 Despite this, I felt truly blessed and thankful for the Metropolitian Transportation Authority (MTA) for 
@@ -75,30 +75,30 @@ However, after using MTA services my entire life, I did notice some things.
 </p>
 <p>
 From my experience, it felt like the services were always worse off in areas where poverty was higher. 
-This observation got me thinking about the people who live in these communities. I knew my commute was long, were theirs longer or more diffcult? 
+This observation got me thinking about the people who live in these communities. I knew my commute was long but were their's longer or more diffcult? 
 How did that affect their daily lives?
 </p>
 
 <p>
-For my Data Incubator Capstone project, I set out to try and make sense of these observations adn questions.
-I wanted to identify areas where poverty was high and the commute times were also high. 
-My thinking is that by identifying these areas, any special attention given would have a larger impact for the people living in these areas.
+For my Data Incubator Capstone project, I set out to use data to try and make sense of these observations and questions.
+I wanted to identify areas where poverty was high and the commute times into the city were also high. 
+Any small improvements that the MTA can provide to these high need areas would have a greater impact and would be more appreciated.
 </p>
 
 <p>
 The initial steps I took was to do some reading about the topic. 
 Looking at the literature, numerous studies indicates that having 
 access to an reliable transportation system is a crucial element in escaping poverty.
-Here are some links to some interesting articles I read.
+Here are some links to interesting articles I read.
 </p>
 
 <div class="highlight"><pre class="highlight elm">
 <ul>
-<li><a href="https://www.nytimes.com/2015/05/07/upshot/transportation-emerges-as-crucial-to-escaping-poverty.html">Transportation Emerges as Crucial to Escaping Poverty
+<li><a href="https://www.nytimes.com/2015/05/07/upshot/transportation-emerges-as-crucial-to-escaping-poverty.html" target="_blank">Transportation Emerges as Crucial to Escaping Poverty
 </a></li>
-<li><a href="https://www.nytimes.com/2015/05/04/upshot/an-atlas-of-upward-mobility-shows-paths-out-of-poverty.html">An Atlas of Upward Mobility Shows Paths Out of Poverty
+<li><a href="https://www.nytimes.com/2015/05/04/upshot/an-atlas-of-upward-mobility-shows-paths-out-of-poverty.html" target="_blank">An Atlas of Upward Mobility Shows Paths Out of Poverty
 </a></li>
-<li><a href="http://www.nber.org/papers/w19843">Where is the Land of Opportunity: The Geography of 
+<li><a href="http://www.nber.org/papers/w19843" target="_blank">Where is the Land of Opportunity: The Geography of 
 Intergenerational Mobility in the United States
 </a></li>
 </ul>
@@ -123,7 +123,7 @@ I took the time of travel as a typical Monday morning during the 8 am rush hour.
 
 <p>
 The choropleth below shows the commute times mapped out by zipcodes for queens. A more detailed interactive version of the map can be found
-<a href="https://showmikpodder.github.io/full_scr_commute/">here</a>.
+<a href="https://showmikpodder.github.io/full_scr_commute/" target="_blank">here</a>.
 </p>
 </div>
 <div id="map"></div>
@@ -142,7 +142,7 @@ Penn Station was chosen as a reference point for the commute times because of th
 is designed. All subways (except the G train) travel through manhattan at some point in their routes. 
 Penn station represents a economic hub within the city where there are alot of opportunities.
 </p>
-<p> Darker shades of color indicate longer commute times. Click on the interactive map, <a href="https://showmikpodder.github.io/full_scr_commute/">here</a>, 
+<p> Darker shades of color indicate longer commute times. Click on the interactive map, <a href="https://showmikpodder.github.io/full_scr_commute/" target="_blank">here</a>, 
 for a more detailed version. At first glance the map makes sense, the further out from manhattan you get, the longer your commute times become.  
 </p>
 
@@ -154,7 +154,7 @@ for a more detailed version. At first glance the map makes sense, the further ou
 </h2>
 
 <p>The next step in my study was to identify the impoverished areas within queens. 
-Theres many ways to do this but I chose to keep it simple and look at the numbers provided by the <a href="https://www.irs.gov/statistics/soi-tax-stats-individual-income-tax-returns-publication-1304-complete-report">Internal Revenue System</a>. 
+Theres many ways to do this but I chose to keep it simple and look at the numbers provided by the <a href="https://www.irs.gov/statistics/soi-tax-stats-individual-income-tax-returns-publication-1304-complete-report" target="_blank">Internal Revenue System</a>. 
 Specifically, I looked at the number returns that were filed that were under the federal guidelines for poverty.</p>
 <p>The choropleth below represents these results.</p>
 </div>
@@ -166,7 +166,7 @@ Specifically, I looked at the number returns that were filed that were under the
 
 <p>
 Just like in the commute times map, darker shades indicate zipcodes that have higher number of poorer households (income less than $25000 per year for a family of 4). 
-A more detailed version of this map can be found <a href="https://showmikpodder.github.io/full_scr_returns/">here</a>. 
+A more detailed version of this map can be found <a href="https://showmikpodder.github.io/full_scr_returns/" target="_blank">here</a>. 
 </p>
 
 <p>
@@ -174,7 +174,7 @@ There are a number of zipcodes with higher numbers of returns spread all over th
 In order to identify the zipcodes that demonstrate high need we have to correlate the commute time data together with the tax return data. 
 To do this and develop a "Need Score", I normalized the two data sets and combined them together to obtain a score. 
 Because the range of the values of the number of returns feature varied much more greatly than the commute times feature, 
-I performed a <a href="https://en.wikipedia.org/wiki/Feature_scaling">feature scaling</a> normalization on the tax return data set.
+I performed a <a href="https://en.wikipedia.org/wiki/Feature_scaling" target="_blank">feature scaling</a> normalization on the tax return data set.
 </p>
 
 <p>
@@ -189,7 +189,7 @@ The choropleth below represents the Need Scores for each zipcode in queens.
 
 <p>
 As with the previous choropleths, the darker colors indicate a higher Need score. 
-A more detailed version of this map can be found <a href="https://showmikpodder.github.io/full_scr_scores/">here</a>.
+A more detailed version of this map can be found <a href="https://showmikpodder.github.io/full_scr_scores/" target="_blank">here</a>.
  These Need scores ranged from values of 0.008 to about 1.743. The zip codes with the highest Need scores and their summaries are listed below.
 </p>
 
@@ -257,7 +257,7 @@ it would be within the bus routes.
 
 <p>
 In this part of the study, I took a look at the massive (~5 GBs) historical GTFS database that the engineers at the MTA has on bustimes. 
-A link to the database can be found <a href="http://data.mytransit.nyc/gtfs/">here</a>.
+A link to the database can be found <a href="http://data.mytransit.nyc/gtfs/" target="_blank">here</a>.
 </p>
 
 <p>
