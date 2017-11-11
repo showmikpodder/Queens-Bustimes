@@ -290,6 +290,19 @@ Since the Q111 route was the most used route in the neighborhood and ranked 9th 
 The information provided in the dataset is absolutely expansive; it ranges way back to 2014 and provides historical data on the bus routes in the city. 
 The data I was looking at was the arrival and departure times of buses at each stop along its route. 
 </p>
+
+<p>
+After an arduous ETL process, I assembled a sqlite database of trips for the Q111 bus in 2016 and their respective stop times. 
+I ended up reducing an overall database containing over 4 million rows to about 100k rows of only Q111 datapoints. 
+That reduced database was further reduced to a table that only contained distinct trips and their trip times.
+	</p>
+<p>
+During this process, I discovered some downsides to the data I was using. 
+It didnt really contain data from ALL the buses that were running thoughout the day, but only some select trips. 
+I suspected that this was really the data really represented the QC/QA trips that the MTA might run to adjust and set bus schedules. 
+Regardless, the data was usable for the purposes of this project.
+</p>
+
 </script>
     </head>
     <body>
