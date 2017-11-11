@@ -260,15 +260,37 @@ it would be within the bus routes.
 
 <p>
 In this part of the study, I took a look at the massive (~5 GBs) historical GTFS database that the engineers at the MTA has on bustimes. 
-A link to the database can be found <a href="http://data.mytransit.nyc/gtfs/" target="_blank">here</a>.
+A link to the database can be found <a href="http://data.mytransit.nyc/gtfs/" target="_blank">here</a>. 
+Most of the information are contained in comma delimited text files.
 </p>
 
 <p>
 Since this is a preliminary study, I looked at a small subset of the data. Specifically, I looked at the buses that ran in the 11434 zipcode.
-I wanted to see if a preliminary understanding can be done on the information.
+I wanted to see if a preliminary insights can be drawn from the information.
 </p>
 
-	
+<p>
+The 11434 zip code contains the neighborhoods of Springfield Garden, South Jamaica, Rochdale, and St. Albans. 
+The area has a population of about 60,000 people and is primarily served by five buses, the Q111, Q113, Q114, Q6, and the Q85. 
+Looking at the <a href="http://web.mta.info/nyct/facts/ridership/ridership_busMTA.htm" target="_blank">MTA ridership</a> information, two of those buses are in the top 10 for highest average weekday Ridership. 
+</p>
+
+<p>
+Based on the numbers, the 11434 zip code has about a 22% poverty rate and the population is extremely dependent on the public transportation. 	
+</p>	
+<h2 id="technical-details">
+	<a href="#technical-details">
+		The Q111 Bus Route
+	</a>
+</h2>
+<p>
+Since the Q111 route was the most used route in the neighborhood and ranked 9th in the entire city in usage, I tackled its data first.	
+</p>
+
+<p>
+The information provided in the dataset is absolutely expansive; it ranges way back to 2014 and provides historical data on the bus routes in the city. 
+The data I was looking at was the arrival and departure times of buses at each stop along its route. 
+</p>
 </script>
     </head>
     <body>
