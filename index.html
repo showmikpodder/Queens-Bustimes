@@ -231,7 +231,7 @@ A more detailed version of this map can be found <a href="https://showmikpodder.
 		<td>1.543</td>
 	</tr>
 </table>
-</pre>
+
 
 <p>
 After doing this analysis and identifying which poor neighborhoods could use better transportation, I looked at how 
@@ -267,7 +267,7 @@ I wanted to see if a preliminary insights can be drawn from the information.
 
 <p>
 The 11434 zip code contains the neighborhoods of Springfield Garden, South Jamaica, Rochdale, and St. Albans. 
-The area has a population of about 60,000 people and is primarily served by five buses, the Q111, Q113, Q114, Q6, and the Q85. 
+The area has a population of about 60,000 people and is primarily served by five buses, the Q111, Q113, Q114, and the Q6. 
 Looking at the <a href="http://web.mta.info/nyct/facts/ridership/ridership_busMTA.htm" target="_blank">MTA ridership</a> information, two of those buses are in the top 10 for highest average weekday Ridership. 
 </p>
 
@@ -293,6 +293,10 @@ After an arduous ETL process, I assembled a sqlite database of trips for the Q11
 I ended up reducing an overall database containing over 4 million rows to about 100k rows of only Q111 weekday datapoints. 
 That reduced database was further reduced to a table that only contained distinct trips and their trip times.
 	</p>
+	<p> I repeated the process for data of the other lines in the neighborhood and filtered out the northbound trips only. 
+	In this area of interest, all subway stations are north of the 11434 neighborhood. 
+	These routes were also designed so that their ending positions are close to subway stations or major transportation hubs.</p>
+
 <p>
 During this process, I discovered some downsides to the data I was using. 
 It didnt really contain data from ALL the buses that were running thoughout the day, but only some select trips. 
@@ -301,10 +305,38 @@ Regardless, the data was usable for the purposes of this project.
 </p>
 
 <p>
-According to the bus schedules for this particular line, the Q111 takes 40 minutes to complete a full northbound trip.
-The plot below represents the how deviation the from the scheduled trip time changes over a 24 hour cycle.  
+I decided to take a look at each bus route's schedules to get information on the listed trip times. 
+The table below shows the listed trip times for each route of buses that travel through the 11434.
 </p>
+<table>
+	<tr>
+		<th>Route</th>
+		<th>Trip Time</th>
+	</tr>
+	<tr>
+		<td>Q111</td>
+		<td>40 minutes</td>
+	</tr>
+	<tr>
+		<td>Q6</td>
+		<td>37 minutes</td>
+	</tr>
+	<tr>
+		<td>Q113</td>
+		<td>59 minutes</td>
+	</tr>
+	<tr>
+		<td>Q114</td>
+		<td>59 minutes</td>
+	</tr>
+</table>
 
+<p>
+Using the actual trip times I constructed from the dataset, I calculated the "scores" of the trips. 
+The score is essentially the difference between the actual trip time and what the trip time is supposed to be. The scores are displayed in the plot below.
+</p>
+	
+	
 </script>
     </head>
         
