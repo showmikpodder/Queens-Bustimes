@@ -378,7 +378,7 @@ So what can we learn?
 Immediately, we can see that the buses do not really do a good job during the times at which they are desperately needed. All four lines run the slowest during the morning weekday rush and overall are very slow during the day. It is only after the nighttime rush that one can board a bus and expect to arrive quicker than expected.
 	</p>
 	<p>
-The best bus that runs through this neighborhood is definitely the q111. It provides the most consistent service, despite already being pushed to its limits in terms of ridership numbers. 
+The best bus that runs through this neighborhood is definitely the Q111. It provides the most consistent service, despite already being pushed to its limits in terms of ridership numbers. 
 	</p
 	<p>
 This graph points to the Q113 and Q114 as the worst buses in the neighborhood. It’ll take longer than expected to complete a trip all throughout the daytime hours. 
@@ -387,6 +387,44 @@ A whole trip can end needing an extra 13 minutes during the morning rush.
 	<p>
 Riding the Q6 seems to be a crap shot. There’s a lot of variability in its travel times during the morning rush, stemming from whether or not you are able to board the limited bus or not.
 	</p>
+	
+	<h2 id="technical-details">
+	<a href="#technical-details">
+		What's Next?
+	</a>
+	</h2>
+	<p>
+I consider this part 1 of the project. Now that I have an understanding of how the travel times in this neighborhood are distributed along a bus route. 
+The next step is to look at where along its route there are pile ups/slow downs in the traffic. The data in the MTA set cant really provide that type of insight. 		
+I would have to build a scraper that can pull real time vehicle positions at regular intervals from the MTA API and build a database from that information.	
+	</p>
+	<p>
+Eventually I want to see if I can build a machine learning model that can predict bus trip times depending on time of day based on this database. 
+There are a number of papers that provide a framework for this process.
+	</p>
+
+	<p>
+The point of this project was to really see if I could set out to use resources out there to try and gain some insight to a question I had about a real life phenomenon. 
+It became a real good chance to practice critical thinking of how to utilize data from a multitude of sources, and a good way to practice some programming and web design skills.
+Overall I used data from over a dozen different sources and spent over 150 hours scraping, cleaning, and analyzing the sources of data in python. 
+	</p>
+	
+	<p>
+Here’s a list below of the Python modules and tools I used. The code I used to clean the data from the MTA is provided in the <a href="https://github.com/showmikpodder/Queens-Bustimes/"> target="_blank">github </a>for this project. 
+Feel free to look through it. 
+	</p>
+	
+<div class="highlight"><pre class="highlight elm">
+<ul>
+<li>Python: pandas, numpy, datetime, geojson, simplejson</li>
+<li>SQL: sqlite in Python</li>
+<li>Data Vizualization: leaflet, mapbox, geopandas, bokeh, matplotlib, javascript</li>
+</ul>
+</pre>
+</div>
+	
+	
+	
 </div>
 </article>
 </div>
@@ -399,11 +437,14 @@ Riding the Q6 seems to be a crap shot. There’s a lot of variability in its tra
 </section>
 
 <div class='copyright-footer'>
+<ul>
 <strong>
-<a href="https://www.thedataincubator.com" target="_blank">The Data Incubator</a>, Fall 2017
-
+<li><a href="https://www.thedataincubator.com" target="_blank">The Data Incubator</a>, Fall 2017</li>
 </strong>
-
+<strong>
+<li><a href="https://www.linkedin.com/in/showmikpodder/" target="_blank">About Me</a></li>
+</strong>
+</ul>
 </div>
 </footer>
 
